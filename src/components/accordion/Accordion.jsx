@@ -113,40 +113,101 @@
 
 
 
-// multiple selection accordion
+// // multiple selection accordion
+
+// import { useState } from 'react';
+// import data from './data';
+
+// export default function Accordion() {
+
+//     const [multiple, setMultiple] = useState([]);
+
+//     function handleMultiSelection(id) {
+
+//         const cpyMultiple = [...multiple];
+
+//         const indexPresent = cpyMultiple.indexOf(id);
+
+//         indexPresent == -1 ? cpyMultiple.push(id) : cpyMultiple.splice(indexPresent, 1)
+
+//         setMultiple(cpyMultiple);
+
+//     }
+
+//     console.log(multiple)
+
+//     return <div className="wrapper">
+//         <div className="accordion">
+//             {
+//                 data && data.length > 0 ?
+//                     data.map((dataItem) => (
+//                         <div className="item" key={dataItem.id}>
+//                             <div className="title" onClick={() => handleMultiSelection(dataItem.id)}>
+//                                 <h2>{dataItem.question}</h2>
+//                                 <span>+</span>
+//                             </div>
+//                             {
+//                                 multiple.includes(dataItem.id) ? <div className='content'>{dataItem.answer}</div> : null
+//                             }
+//                         </div>
+//                     ))
+//                     : <div>Content Not Found</div>
+//             }
+//         </div>
+//     </div>
+// }
+
+
+
+
+
+
+
+// final accordion
 
 import { useState } from 'react';
 import data from './data';
-
-
+import './style.css'
 
 export default function Accordion() {
-
     const [selected, setSelected] = useState(null);
+    const [multiSelection, setMultiSelection] = useState(false);
+    const [multiple, setMultiple] = useState([]);
 
-    function handleMultiSelection(id) {
-        setSelected(id)
-        console.log(selected)
+    function handleClick(currentId) {
+        multiSelection ? handleMultiSelection(currentId) : handleSingleSelection(currentId);
 
     }
 
+    function handleSingleSelection(currentId) {
+        setSelected(currentId === selected ? null : currentId);
+
+    }
+
+    function handleMultiSelection(currentId) {
+        const copyMultiple = [...multiple];
+        const checkId = copyMultiple.indexOf(currentId);
+        checkId === -1 ? copyMultiple.push(currentId) : copyMultiple.splice(checkId, 1);
+        setMultiple(copyMultiple);
+    }
+    console.log(multiple)
 
     return <div className="wrapper">
         <div className="accordion">
+            <button type='button' onClick={() => setMultiSelection(!multiSelection)}>{multiSelection ? "Disable" : "Enable"} Multi Selection</button>
             {
                 data && data.length > 0 ?
-                    data.map((dataItem) => (
-                        <div className="item" key={dataItem.id}>
-                            <div className="title" onClick={handleMultiSelection}>
-                                <h2>{dataItem.question}</h2>
-                                <span>+</span>
-                            </div>
-                            {
-
-                            }
+                    data.map(dataItem => <div className='item' key={dataItem.id}>
+                        <div className="title" onClick={() => handleClick(dataItem.id)}>
+                            <h2>{dataItem.question}</h2>
                         </div>
-                    ))
-                    : <div>Content Not Found</div>
+                        {
+                            multiSelection ?
+                                multiple.includes(dataItem.id) ?
+                                    <div className="content">{dataItem.answer}</div> : null
+                                : selected === dataItem.id ? <div className="content">{dataItem.answer}</div> : null
+                        }
+                    </div>) : <div>No Content Found</div>
             }
         </div>
     </div>
