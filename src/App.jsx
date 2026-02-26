@@ -1,10 +1,9 @@
-
-import RandomColor from './components/random-color-generator/index'
+import StarRating from './components/star-rating/index'
 function App() {
 
   return (
     <>
-      <RandomColor />
+      <StarRating noOfStars={10} />
     </>
   )
 }
