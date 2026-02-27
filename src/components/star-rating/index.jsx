@@ -34,5 +34,4 @@ export default function StarRating({ noOfStars = 5 }) {
             />
         })
     }</div>
-
 }

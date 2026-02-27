@@ -1,9 +1,12 @@
-import StarRating from './components/star-rating/index'
+
+import './App.css'
+import ImageSlider from './components/image-slider'
 function App() {
 
   return (
     <>
-      <StarRating noOfStars={10} />
+    <ImageSlider/>
+
     </>
   )
 }
