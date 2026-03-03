@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs'
-
+import './style.css'
 
 
 export default function ImageSlider({ url, page, limit }) {
@@ -52,7 +52,7 @@ export default function ImageSlider({ url, page, limit }) {
         {
             images && images.length ?
                 images.map(imageItem => (
-                    <img key={imageItem.id} alt={imageItem.download_url} src={imageItem.download_url} className="current-image" height={imageItem.height = 100} width={imageItem.width = 100} />
+                    <img key={imageItem.id} alt={imageItem.download_url} src={imageItem.download_url} className="current-image" height={imageItem.height} width={imageItem.width} />
                 )) : null
         }
 
@@ -60,12 +60,11 @@ export default function ImageSlider({ url, page, limit }) {
 
         <span className="circle-indicators">
             {
-                images && images.length ? 
-                images.map((_,index)=>(
-                    <button key={index} className="current-indicator" >
-
-                    </button>
-                )) : null
+                images && images.length ?
+                    images.map((_, index) => (
+                        <button key={index} className="current-indicator" >
+                        </button>
+                    )) : null
             }
         </span>
     </div>
