@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <ImageSlider url={`https://picsum.photos/v2/list`} page={2} limit={2}/>
+      <ImageSlider url={`https://picsum.photos/v2/list`} page={2} limit={4}/>
     </>
   )
 }
