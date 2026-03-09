@@ -16,11 +16,18 @@ export default function MenuItem({ item }) {
             <p>{item.label}</p>
             {
                 item && item.children ?
-                    item.children.length > 0 ? <span onClick={() => handleToggleChildren(item.label)}>
+                    item.children.length > 0 ? <button
+                    /* coderabbit suggested changes to add proper buttons instead of span tag */
+                        type="button"
+                        onClick={() => handleToggleChildren(item.label)}
+                        className="menu-toggle"
+                        aria-expanded={Boolean(displayCurrentChildren[item.label])}
+                        aria-label={`Toggle ${item.label}`}
+                    >
                         {
                             displayCurrentChildren[item.label] ? <FaMinus size={25} color="#fff" /> : <FaPlus size={25} color="#fff" />
                         }
-                    </span> : null : null
+                    </button> : null : null
             }
         </div>
 
@@ -30,5 +37,5 @@ export default function MenuItem({ item }) {
                     <MenuList list={item.children} />
                     : null : null
         }
-    </li>
+    </li >
 }

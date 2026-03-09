@@ -18,6 +18,16 @@
     margin-bottom: 0px;
 }
 
-span{
+
+.menu-toggle{
+    background-color: transparent;
+    border: none;
+    outline: none;
     cursor: pointer;
+    color: inherit;
+}
+
+
+.menu-toggle:focus{
+    border: 1px solid;
 }
