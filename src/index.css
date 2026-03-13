@@ -1,6 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
+*,*::before,*::after{
   box-sizing: border-box;
 }
 
@@ -13,4 +11,5 @@ body {
 body {
   background-color: rgb(39, 39, 39);
   color: white;
+  margin: 0;
 }
