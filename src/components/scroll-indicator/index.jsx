@@ -20,8 +20,8 @@ export default function ScrollIndicator({ url }) {
 
             if (data && data.products && data.products.length > 0) {
                 setData(data.products);
-                setLoading(false);
             }
+            setLoading(false);
 
         } catch (error) {
             console.log(error);
@@ -47,14 +47,14 @@ export default function ScrollIndicator({ url }) {
 
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-        setScrollPercentage((howMuchScrolled / height) * 100);
+        setScrollPercentage(height > 0 ? (howMuchScrolled / height) * 100 : 0);
 
     }
 
     useEffect(() => {
         window.addEventListener('scroll', handleScrollPercentage);
         return () => {
-            window.removeEventListener('scroll', () => { })
+            window.removeEventListener('scroll', handleScrollPercentage);
         }
     }, [])
 
@@ -80,7 +80,7 @@ export default function ScrollIndicator({ url }) {
         <div className="data-container">
             {
                 data && data.length > 0 ?
-                    data.map((dataItem) => <p>{dataItem.title}</p>) : null
+                    data.map((dataItem,index) => <p key={index}>{dataItem.title}</p>) : null
             }
         </div>
     </div >
