@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.top-container {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.top-container h1{
+    padding: 2rem;
+}
+
+
+.scroll-progress-tracking-container {
+    width: 100%;
+    height: 10px;
+    background-color: red;
+}
+
+.current-progress-bar {
+    height: 10px;
+    background-color: blue;
+    width: 0%;
+}
+
+.data-container{
+    margin-top: 2rem;
+    text-align: center;
+}
