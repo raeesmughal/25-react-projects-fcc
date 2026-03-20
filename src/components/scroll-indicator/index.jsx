@@ -32,7 +32,9 @@ export default function ScrollIndicator({ url }) {
     }
 
     useEffect(() => {
-        fetchData(url)
+        const controller = new AbortController();
+        fetchData(url, controller.signal);
+        return () => controller.abort();
     }, [url])
 
     function handleScrollPercentage() {
