@@ -1,0 +1,49 @@
+:root {
+    --background: white;
+    --text-primary: black;
+    --button-bg: black;
+    --button-text: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+[data-theme='dark'] {
+    --background: rgb(0, 0, 0);
+    --text-primary: rgb(255, 255, 255);
+    --button-bg: rgb(255, 255, 255);
+    --button-text: rgb(0, 0, 0);
+}
+
+.light-dark-mode {
+    background-color: var(--background);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    transition: all .5s ease;
+}
+
+.light-dark-mode p {
+    color: var(--text-primary);
+    text-align: center;
+    padding: 1rem;
+}
+
+.light-dark-mode button {
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    color: var(--button-text);
+    background: var(--button-bg);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    max-width: 600px;
+}
