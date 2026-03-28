@@ -10,7 +10,7 @@
     background-color: #baf005;
 }
 
-.modal-content{
+.modal-content {
     position: relative;
     background-color: #fefefe;
     margin: auto;
@@ -21,13 +21,15 @@
     animation: animateModal .5s;
 }
 
-.modal-header{
+.modal-header {
     padding: 4px 16px;
     background-color: #5cb85c;
     color: white;
 }
 
-.close-modal-icon{
+.close-modal-icon {
+    background: none;
+    border: none;
     cursor: pointer;
     font-size: 30px;
     float: right;
@@ -35,17 +37,17 @@
 }
 
 
-.modal-body{
+.modal-body {
     padding: 2px 16px;
     height: 200px;
 }
 
-.modal-body div{
+.modal-body div {
     padding-top: 12px;
 }
 
 
-.modal-footer{
+.modal-footer {
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
@@ -54,11 +56,12 @@
 
 
 @keyframes animateModal {
-    from{
+    from {
         bottom: -200px;
         opacity: 0;
     }
-    to{
+
+    to {
         bottom: 0;
         opacity: 1;
     }
