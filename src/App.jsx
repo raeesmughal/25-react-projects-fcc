@@ -6,8 +6,9 @@ import './App.css'
 // import TreeView from './components/tree-view'
 // import menus from './components/tree-view/data'
 // import LightDarkMode from "./components/light-dark-mode";
-import ScrollIndicator from './components/scroll-indicator'
-import TabsTest from './components/custom-tabs/tab-test'
+// import ScrollIndicator from './components/scroll-indicator'
+// import TabsTest from './components/custom-tabs/tab-test'
+import ModalTest from './components/custom-modal-popup/modal-test'
 function App() {
 
   return (
@@ -32,7 +33,10 @@ function App() {
       {/* <ScrollIndicator url={`https://dummyjson.com/products?limit=100`} /> */}
 
       {/* Custom Tabs */}
-      <TabsTest />
+      {/* <TabsTest /> */}
+
+      {/* custom modal popup */}
+      <ModalTest />
 
     </>
   )
