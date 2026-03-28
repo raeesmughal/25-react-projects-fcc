@@ -8,12 +8,12 @@ export default function Tabs({ tabsContent, onChange }) {
 
     function handleOnClick(getCurrentIndex) {
         setCurrentTabIndex(getCurrentIndex);
-        onChange(getCurrentIndex);
+        onChange?.(getCurrentIndex);
     }
 
 
-    return <div className="wrapper">
-        <div className="heading">
+    return <div className="tabs-wrapper">
+        <div className="tabs-heading">
             {
                 tabsContent.map((tabItem, index) => <div 
                 key={tabItem.label} 
@@ -24,7 +24,7 @@ export default function Tabs({ tabsContent, onChange }) {
                 </div>)
             }
         </div>
-        <div className="content">
+        <div className="tabs-content">
             {
                 tabsContent[currentTabIndex] && tabsContent[currentTabIndex].content
             }
