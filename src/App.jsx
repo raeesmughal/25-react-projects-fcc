@@ -7,6 +7,7 @@ import './App.css'
 // import menus from './components/tree-view/data'
 // import LightDarkMode from "./components/light-dark-mode";
 import ScrollIndicator from './components/scroll-indicator'
+import TabsTest from './components/custom-tabs/tab-test'
 function App() {
 
   return (
@@ -28,7 +29,10 @@ function App() {
 
 
       {/* scroll indicator */}
-      <ScrollIndicator url={`https://dummyjson.com/products?limit=100`} />
+      {/* <ScrollIndicator url={`https://dummyjson.com/products?limit=100`} /> */}
+
+      {/* Custom Tabs */}
+      <TabsTest />
 
     </>
   )
