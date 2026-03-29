@@ -1,0 +1,119 @@
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.github-profile-container {
+    margin: 30px auto 0;
+    /* width: 90%; */
+    max-width: 1000px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgb(45, 45, 45);
+
+    width: min(500px, 90%);
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.input-wrapper input {
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    width: auto;
+}
+
+.input-wrapper button {
+    padding: 5px 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #00f4ec;
+    color: black;
+    cursor: pointer;
+}
+
+
+
+
+
+.github-user {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgb(35, 35, 41);
+}
+
+.github-user-avatar {
+    height: 150px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+.github-user-name-container {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+
+
+}
+
+.github-user-name-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.github-user-name-container a:hover {
+    text-decoration: underline;
+}
+
+.github-user-name-container p {
+    margin: 0;
+}
+
+.github-user-profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 30px;
+}
+
+
+.github-user-profile-info>div:first-child {
+    border: 2px solid rgb(90, 84, 84);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 2rem;
+    background-color: rgb(62, 55, 55);
+}
+
+.github-user-profile-info>div:first-child p:last-child{
+    font-size: 1.5rem;
+}
+
+.github-user-profile-info .follow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.github-user-profile-info .follow div {
+    display: flex;
+    gap: 4px;
+}
