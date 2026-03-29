@@ -8,7 +8,8 @@ import './App.css'
 // import LightDarkMode from "./components/light-dark-mode";
 // import ScrollIndicator from './components/scroll-indicator'
 // import TabsTest from './components/custom-tabs/tab-test'
-import ModalTest from './components/custom-modal-popup/modal-test'
+// import ModalTest from './components/custom-modal-popup/modal-test'
+import GithubProfileFinder from './components/github-profile-finder'
 function App() {
 
   return (
@@ -36,7 +37,10 @@ function App() {
       {/* <TabsTest /> */}
 
       {/* custom modal popup */}
-      <ModalTest />
+      {/* <ModalTest /> */}
+
+      {/* github profile finder */}
+      <GithubProfileFinder />
 
     </>
   )
