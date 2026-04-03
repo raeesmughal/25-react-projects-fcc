@@ -55,4 +55,4 @@ I follow a professional Git workflow for every project in this repository:
 
 ## Raees Mughal
 - [LinkedIn](https://www.linkedin.com/in/raeesmughal/)
-- [Portfolio]('https://raeesmughal.bio.link')
+- [Portfolio](https://raeesmughal.bio.link)

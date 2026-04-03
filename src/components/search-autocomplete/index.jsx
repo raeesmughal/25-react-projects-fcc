@@ -38,20 +38,24 @@ export default function SearchAutocomplete() {
         try {
             setLoading(true);
             const res = await fetch(`https://dummyjson.com/users`);
+            if (!res.ok) {
+                throw new Error(`HTTP error : ${res.status}`)
+            }
             const data = await res.json();
 
             console.log(data);
 
             if (data && data.users && data.users.length) {
                 setUser(data.users.map((userItem) => userItem.firstName));
-                setLoading(false);
-                setError(null);
             }
 
+            setError(null);
+
+
         } catch (er) {
+            setError(er);
+        } finally {
             setLoading(false);
-            console.log(er.message);
-            setError(er)
         }
     }
 
@@ -68,7 +72,7 @@ export default function SearchAutocomplete() {
     return (
         <div className="search-autocomplete-container">
             {
-                loading ? <h1>Loading Data! Please Wait</h1> : <input
+                loading ? <h1>Loading Data! Please Wait</h1> : error ? <h1>Error loading data. Please try again.</h1> : <input
                     value={searchParam}
                     type="text"
                     name="search-users"
