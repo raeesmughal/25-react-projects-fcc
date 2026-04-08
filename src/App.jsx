@@ -1,5 +1,7 @@
 
 import './App.css'
+import FeatureFlags from './components/feature-flag'
+import FeatureFlagGlobalState from './components/feature-flag/context'
 // import ImageSlider from './components/image-slider'
 // import LoadMoreData from './components/load-more-data'
 // import QrCodeGenerator from './components/qr-code-generator'
@@ -11,7 +13,9 @@ import './App.css'
 // import ModalTest from './components/custom-modal-popup/modal-test'
 // import GithubProfileFinder from './components/github-profile-finder'
 // import SearchAutocomplete from './components/search-autocomplete'
-import TicTacTeo from './components/tic-tac-teo'
+// import TicTacTeo from './components/tic-tac-teo'
+
+
 function App() {
 
   return (
@@ -48,7 +52,13 @@ function App() {
       {/* <SearchAutocomplete /> */}
 
       {/* Tic Tac Teo */}
-      <TicTacTeo />
+      {/* <TicTacTeo /> */}
+
+
+      {/* Feature Flag */}
+      <FeatureFlagGlobalState>
+        <FeatureFlags/>
+      </FeatureFlagGlobalState>
 
     </>
   )
