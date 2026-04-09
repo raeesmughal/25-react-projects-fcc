@@ -1,7 +1,12 @@
 
 import './App.css'
-import FeatureFlags from './components/feature-flag'
-import FeatureFlagGlobalState from './components/feature-flag/context'
+import ScrollToSection from './components/scroll-to-section'
+import ScrollTopBottom from './components/scroll-top-bottom'
+import UseFetchHookTest from './components/use-fetch/test'
+import UseOnclickOutsideTest from './components/use-outside-click/test'
+import UseWindowResizeTest from './components/use-window-resize/test'
+// import FeatureFlags from './components/feature-flag'
+// import FeatureFlagGlobalState from './components/feature-flag/context'
 // import ImageSlider from './components/image-slider'
 // import LoadMoreData from './components/load-more-data'
 // import QrCodeGenerator from './components/qr-code-generator'
@@ -56,9 +61,25 @@ function App() {
 
 
       {/* Feature Flag */}
-      <FeatureFlagGlobalState>
+      {/* <FeatureFlagGlobalState>
         <FeatureFlags/>
-      </FeatureFlagGlobalState>
+      </FeatureFlagGlobalState> */}
+
+
+      {/* useFetch - Custom Hook */}
+      {/* <UseFetchHookTest /> */}
+
+      {/* click outside hook test */}
+      {/* <UseOnclickOutsideTest /> */}
+
+      {/* window resize hook test */}
+      {/* <UseWindowResizeTest /> */}
+
+      {/* Scroll to top and bottom */}
+      {/* <ScrollTopBottom /> */}
+
+      {/* Scroll to Particular Section */}
+      <ScrollToSection />
 
     </>
   )
