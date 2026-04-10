@@ -11,20 +11,27 @@ export default function Weather() {
 
     async function fetchWeatherData(param) {
         setLoading(true);
+
+        const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+
+        if (!apiKey) {
+            console.error("API Key is missing! Check your .env file.");
+            return;
+        }
+
         try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${param}&appid=f14969d7c26847e14a64a862b790d6d7`);
+
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${param}&appid=${apiKey}`);
+
             const data = await response.json();
 
-
-
-            if (data) {
-                setLoading(false);
-                setWeatherData(data);
+            if (!response.ok) {
+                throw new Error(data?.message || "Failed to fetch weather data");
             }
 
-
-            console.log(data, "data");
-
+            setWeatherData(data);
+            setLoading(false);
+            setError(null);
 
         } catch (error) {
             setLoading(false);
@@ -33,8 +40,10 @@ export default function Weather() {
         }
     }
 
-    async function handleSearch() {
-        fetchWeatherData(search)
+    function handleSearch() {
+        const query = search.trim();
+        if (!query) return
+        fetchWeatherData(query);
     }
 
     useEffect(() => {
@@ -57,37 +66,38 @@ export default function Weather() {
             setSearch={setSearch}
             handleSearch={handleSearch}
         />
-        
+
         {
             loading ? <div className="loading">Loading...</div> :
-                <div>
-                    <div className="city-name">
-                        <h2>{weatherData?.name}, <span>{weatherData?.sys?.country}</span></h2>
-                    </div>
-                    <div className="date">
-                        <span>{getCurrentDate()}</span>
-                    </div>
-                    <div className="temperature">{weatherData?.main?.temp}</div>
-                    <p className="description">
-                        {
-                            weatherData && weatherData.weather ? weatherData.weather[0]['description'] : ''
-                        }
-                    </p>
-                    <div className="weather-info">
-                        <div className="column">
-                            <div>
-                                <p className="wind">{weatherData?.wind?.speed}</p>
-                                <p>Wind Speed</p>
+                error ? <div className="loading">{error.message}</div> :
+                    <div>
+                        <div className="city-name">
+                            <h2>{weatherData?.name}, <span>{weatherData?.sys?.country}</span></h2>
+                        </div>
+                        <div className="date">
+                            <span>{getCurrentDate()}</span>
+                        </div>
+                        <div className="temperature">{weatherData?.main?.temp}</div>
+                        <p className="description">
+                            {
+                                weatherData && weatherData.weather ? weatherData.weather[0]['description'] : ''
+                            }
+                        </p>
+                        <div className="weather-info">
+                            <div className="column">
+                                <div>
+                                    <p className="wind">{weatherData?.wind?.speed}</p>
+                                    <p>Wind Speed</p>
+                                </div>
+                            </div>
+                            <div className="column">
+                                <div>
+                                    <p className="humidity">{weatherData?.main?.humidity}%</p>
+                                    <p>Humidity</p>
+                                </div>
                             </div>
                         </div>
-                        <div className="column">
-                            <div>
-                                <p className="humidity">{weatherData?.main?.humidity}%</p>
-                                <p>Humidity</p>
-                            </div>
-                        </div>
                     </div>
-                </div>
         }
     </div>
 }
