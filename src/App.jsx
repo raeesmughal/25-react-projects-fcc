@@ -5,6 +5,7 @@ import ScrollTopBottom from './components/scroll-top-bottom'
 import UseFetchHookTest from './components/use-fetch/test'
 import UseOnclickOutsideTest from './components/use-outside-click/test'
 import UseWindowResizeTest from './components/use-window-resize/test'
+import Weather from './components/weather-app'
 // import FeatureFlags from './components/feature-flag'
 // import FeatureFlagGlobalState from './components/feature-flag/context'
 // import ImageSlider from './components/image-slider'
@@ -79,7 +80,14 @@ function App() {
       {/* <ScrollTopBottom /> */}
 
       {/* Scroll to Particular Section */}
-      <ScrollToSection />
+      {/* <ScrollToSection /> */}
+
+
+      {/* Weather App */}
+      <Weather />
+
+
+      
 
     </>
   )
