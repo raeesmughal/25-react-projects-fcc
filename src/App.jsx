@@ -86,9 +86,6 @@ function App() {
       {/* Weather App */}
       <Weather />
 
-
-      
-
     </>
   )
 }
